@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'static_pages#index'
+
   resources :gists
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,4 +4,8 @@ class Gist < ActiveRecord::Base
 	validates :type_id, presence: true
 	validates :owner_id, presence: true
 	validates :name, presence: true
+
+	def type
+		# naming colision
+	end
 end
