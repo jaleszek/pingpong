@@ -4,7 +4,7 @@ class GistsController < ApplicationController
   # GET /gists
   # GET /gists.json
   def index
-    @gists = Gist.all
+    @gists = Gist.where(owner_id: current_user.id)
   end
 
   # GET /gists/1
@@ -15,6 +15,7 @@ class GistsController < ApplicationController
   # GET /gists/new
   def new
     @gist = Gist.new
+    render nothing: true
   end
 
   # GET /gists/1/edit
@@ -24,7 +25,8 @@ class GistsController < ApplicationController
   # POST /gists
   # POST /gists.json
   def create
-    @gist = Gist.new(gist_params)
+    @gist = Gist.create(owner_id: 1, type_id: 1, url: 'asd', name: Time.now.to_s)
+    @gist.update_content params
 
     respond_to do |format|
       if @gist.save
@@ -42,6 +44,8 @@ class GistsController < ApplicationController
   def update
     respond_to do |format|
       if @gist.update(gist_params)
+        @gist.update_content(params)
+
         format.html { redirect_to @gist, notice: 'Gist was successfully updated.' }
         format.json { render :show, status: :ok, location: @gist }
       else
@@ -69,6 +73,6 @@ class GistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gist_params
-      params.require(:gist).permit(:name, :url, :owner_id, :type)
+      params.require(:gist).permit(:name, :url, :owner_id, :type, :normalized)
     end
 end

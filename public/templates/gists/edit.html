@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Gist detail</h1>
+
+    <form novalidate="novalidate" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="inputNormalized">First name:</label>
+            <div class="controls">
+                <input type="text" id="inputNormalized" ng-model="gist.normalized"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+              <!-- user-detail.html: -->
+                <a ng-click="cancel()" class="btn btn-small">cancel</a>
+                <a ng-click="updateGist()" class="btn btn-small btn-primary">update user</a>
+
+            </div>
+        </div>
+    </form>
+</div>

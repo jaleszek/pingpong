@@ -1,4 +1,9 @@
 Gist:
 <h1>{{gist.name}}</h1>
 
+BODY
+{{gist.normalized}}
+<a ng-click="deleteGist(gist.id)">Delete</a>
+<a ng-click="editGist(gist.id)">Edit</a>
+<a ng-click="createNewGist()">Create new gist</a>
 <a href='/#/gists'>index</a>

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -29,6 +29,12 @@ gem 'rspec-rails', group: :test
 gem 'shoulda-matchers', group: :test, require: false
 gem 'factory_girl_rails', group: :test
 gem 'haml-rails'
+gem 'debugger'
+
+gem 'devise'
+gem 'inherited_resources'
+gem 'omniauth-github'
+gem 'quiet_assets'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

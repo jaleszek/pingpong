@@ -1,4 +1,4 @@
-@pingpong = angular.module('pingpong', [])
+@pingpong = angular.module('pingpong', ['pingpong.services', 'pingpong.controllers'])
 
 @pingpong.config(['$routeProvider', ($routeProvider) ->
 	$routeProvider.
@@ -6,12 +6,33 @@
 			templateUrl: '../templates/gists/index.html',
 			controller: 'GistIndexCtrl'
 			}).
+
+		when('/gists/new',{
+			templateUrl: '../templates/gists/new.html',
+			controller: 'GistCreationCtrl'
+			}).
 		when('/gists/:id', {
 			templateUrl: '../templates/gists/show.html',
 			controller: 'GistShowCtrl'
 			}).
+		when('/gists/:id/edit',{
+			controller: 'GistDetailsCtrl',
+			templateUrl: '../templates/gists/edit.html'
+			}).
+		when('/sign_up', {
+      templateUrl: '../templates/registrations/new.html',
+      controller: 'SignUpCtrl'
+      }).
+		when('/sign_in', {
+     templateUrl: '../templates/sessions/new.html',
+     controller: 'SignInCtrl'
+    }).
+    when('/sign_out', {
+    	controller: 'SignOutCtrl',
+    	template: " "
+    }).
 		otherwise({
-			templateUrl: '../templates/home.html',
-			controller: 'HomeCtrl'
+			templateUrl: '../templates/gists/index.html',
+			controller: 'GistIndexCtrl'
 			})
 ])
