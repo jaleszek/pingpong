@@ -6,4 +6,18 @@ BODY
 <a ng-click="deleteGist(gist.id)">Delete</a>
 <a ng-click="editGist(gist.id)">Edit</a>
 <a ng-click="createNewGist()">Create new gist</a>
+
+<a ng-click="createChallenge(gist.id)">Post your response</a>
 <a href='/#/gists'>index</a>
+
+
+
+Challenges:
+
+
+<ul ng-repeat"challenge in gist.challenges">
+  <li>
+    <span>code: {{challenge.normalized}}</span>
+  </li>
+
+</ul>

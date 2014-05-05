@@ -9,4 +9,6 @@
 
   $scope.editGist= (id) ->
     $location.path("/gists/#{id}/edit")
+  $scope.createChallenge= (id) ->
+    $location.path("/gists/#{id}/challenges/new")
 ]

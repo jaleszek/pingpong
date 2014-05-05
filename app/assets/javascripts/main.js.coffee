@@ -11,6 +11,10 @@
 			templateUrl: '../templates/gists/new.html',
 			controller: 'GistCreationCtrl'
 			}).
+    when('/gists/:id/challenges/new', {
+      controller: 'GistCreationCtrl',
+      templateUrl: '../templates/gists/challenges/new.html'
+    }).
 		when('/gists/:id', {
 			templateUrl: '../templates/gists/show.html',
 			controller: 'GistShowCtrl'

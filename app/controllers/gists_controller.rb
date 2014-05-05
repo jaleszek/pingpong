@@ -4,7 +4,7 @@ class GistsController < ApplicationController
   # GET /gists
   # GET /gists.json
   def index
-    @gists = Gist.where(owner_id: current_user.id)
+    @gists = Gist.challengable
   end
 
   # GET /gists/1
@@ -25,8 +25,15 @@ class GistsController < ApplicationController
   # POST /gists
   # POST /gists.json
   def create
+
+
     @gist = Gist.create(owner_id: 1, type_id: 1, url: 'asd', name: Time.now.to_s)
     @gist.update_content params
+
+    if parent_gist_id = params[:parent_gist_id].present?
+      parent = Gist.find parent_gist_id
+      parent.add_challenge(@gist)
+    end
 
     respond_to do |format|
       if @gist.save

@@ -6,6 +6,14 @@ class Gist < ActiveRecord::Base
 	validates :name, presence: true
 
 	has_one :gist_content
+	has_many :gists_challenges, foreign_key: :parent_gist_id
+	has_many :challenges, through: :gists_challenges, source: :challenge
+
+	def add_challenge(gist)
+		unless challenges.include?(gist) && gist != self
+			challenges << gist
+		end
+	end
 
 	def type
 		# naming colision
@@ -26,5 +34,13 @@ class Gist < ActiveRecord::Base
 		else
 			nil
 		end
+	end
+
+	def self.challengable
+		# make it better
+		taken = GistsChallenge.pluck(:challenge_gist_id)
+		table = self.arel_table
+
+		where(table[:id].not_in(taken))
 	end
 end

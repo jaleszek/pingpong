@@ -37,13 +37,19 @@ app.controller('GistDetailsCtrl', ['$scope', '$routeParams', 'GistFactory', '$lo
 
 ])
 
-app.controller('GistCreationCtrl', ['$scope', 'GistsFactory', '$location','$rootScope',($scope, GistsFactory,$location,$rootScope)->
+app.controller('GistCreationCtrl', ['$scope', 'GistsFactory', '$location','$rootScope','$routeParams',($scope, GistsFactory,$location,$rootScope,$routeParams)->
   if !$rootScope.auth_token
     $location.path( "/sign_in" )
     return
 
   $scope.createNewGist =->
     GistsFactory.create($scope.gist)
+    $location.path("/gists")
+  $scope.createNewChallenge =->
+    gist = $scope.gist
+    gist.parent_gist_id = $routeParams.id
+
+    GistsFactory.create(gist)
     $location.path("/gists")
 ])
 
