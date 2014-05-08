@@ -36,6 +36,8 @@ gem 'inherited_resources'
 gem 'omniauth-github'
 gem 'quiet_assets'
 gem 'acts_as_votable', '~> 0.9.0'
+
+gem 'pygments.rb', github: 'tmm1/pygments.rb'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

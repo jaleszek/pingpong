@@ -43,4 +43,24 @@ class Gist < ActiveRecord::Base
 
 		where(table[:id].not_in(taken))
 	end
+
+	def self.not_challengable
+		taken = GistsChallenge.pluck(:challenge_gist_id)
+		table = self.arel_table
+
+		where(table[:id].in(taken))
+	end
+
+	def language_sym
+		# TODO: implement
+		'ruby'
+	end
+
+	def formatted
+		Pygments.highlight(normalized, lexer: language_sym)
+	end
+
+	def challenges
+		Gist.not_challengable.limit(3)
+	end
 end

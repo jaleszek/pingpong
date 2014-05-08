@@ -1,9 +1,9 @@
 app = angular.module('pingpong.controllers', [])
 app.controller('GistIndexCtrl', ['$scope', 'GistsFactory', 'GistFactory', '$location', '$http', '$rootScope', '$routeParams', ($scope,GistsFactory,GistFactory,$location,$http,$rootScope,$routeParams)->
   $rootScope.auth_token = $routeParams.auth_token if $routeParams.auth_token
-  if !$rootScope.auth_token
-    $location.path( "/sign_in" )
-    return
+  # if !$rootScope.auth_token
+  #   $location.path( "/sign_in" )
+  #   return
 
   $http.get('./gists.json').success((data) ->
     $scope.gists = data
@@ -21,9 +21,9 @@ app.controller('GistIndexCtrl', ['$scope', 'GistsFactory', 'GistFactory', '$loca
 
 
 app.controller('GistDetailsCtrl', ['$scope', '$routeParams', 'GistFactory', '$location', '$rootScope', ($scope,$routeParams,GistFactory,$location,$rootScope) ->
-  if !$rootScope.auth_token
-    $location.path( "/sign_in" )
-    return
+  # if !$rootScope.auth_token
+  #   $location.path( "/sign_in" )
+  #   return
 
   $scope.updateGist = ->
     GistFactory.update({id: $scope.gist.id}, $scope.gist)
@@ -38,9 +38,9 @@ app.controller('GistDetailsCtrl', ['$scope', '$routeParams', 'GistFactory', '$lo
 ])
 
 app.controller('GistCreationCtrl', ['$scope', 'GistsFactory', '$location','$rootScope','$routeParams',($scope, GistsFactory,$location,$rootScope,$routeParams)->
-  if !$rootScope.auth_token
-    $location.path( "/sign_in" )
-    return
+  # if !$rootScope.auth_token
+  #   $location.path( "/sign_in" )
+  #   return
 
   $scope.createNewGist =->
     GistsFactory.create($scope.gist)
@@ -55,9 +55,9 @@ app.controller('GistCreationCtrl', ['$scope', 'GistsFactory', '$location','$root
 
 app.controller('SignUpCtrl', ['$scope', '$location', '$http', '$rootScope', ($scope, $location, $http, $rootScope) ->
   # redirect if already authenticated
-  if $rootScope.auth_token
-    $location.path( "/gists" )
-    return
+  # if $rootScope.auth_token
+  #   $location.path( "/gists" )
+  #   return
 
   $scope.errors = ""
   $scope.signUp = (user) ->
@@ -75,9 +75,9 @@ app.controller('SignUpCtrl', ['$scope', '$location', '$http', '$rootScope', ($sc
 
 app.controller 'SignInCtrl', ['$scope', '$location', '$http', '$rootScope', ($scope, $location, $http, $rootScope) ->
   # redirect if already authenticated
-  if $rootScope.auth_token
-    $location.path( "/gists" )
-    return
+  # if $rootScope.auth_token
+  #   $location.path( "/gists" )
+  #   return
 
   $scope.errors = ""
   $scope.signIn = (session) ->

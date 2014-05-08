@@ -21,3 +21,5 @@ module Pingpong
     # config.i18n.default_locale = :de
   end
 end
+
+Rails.application.config.assets.precompile += %w( pygments.css )

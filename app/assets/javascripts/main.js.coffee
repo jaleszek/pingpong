@@ -1,4 +1,4 @@
-@pingpong = angular.module('pingpong', ['pingpong.services', 'pingpong.controllers'])
+@pingpong = angular.module('pingpong', ['pingpong.services', 'pingpong.controllers', 'ngSanitize'])
 
 @pingpong.config(['$routeProvider', ($routeProvider) ->
 	$routeProvider.

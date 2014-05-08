@@ -1,8 +1,10 @@
 Gist:
 <h1>{{gist.name}}</h1>
 
-BODY
-{{gist.normalized}}
+<pre>
+  <div ng-bind-html="gist.formatted">
+  </div>
+</pre>
 <a ng-click="deleteGist(gist.id)">Delete</a>
 <a ng-click="editGist(gist.id)">Edit</a>
 <a ng-click="createNewGist()">Create new gist</a>
@@ -15,9 +17,10 @@ BODY
 Challenges:
 
 
-<ul ng-repeat"challenge in gist.challenges">
+<ul ng-repeat = "challenge in gist.challenges">
   <li>
-    <span>code: {{challenge.normalized}}</span>
+    {{challenge.name}}
+    <pre><div ng-bind-html="challenge.formatted"></div></pre>
   </li>
 
 </ul>

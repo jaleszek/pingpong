@@ -1,10 +1,11 @@
 @pingpong.controller 'GistShowCtrl', ['$scope', '$http', '$routeParams', '$location', '$rootScope', ($scope, $http, $routeParams,$location,$rootScope) ->
-  if !$rootScope.auth_token
-    $location.path( "/sign_in" );
-    return
+  # if !$rootScope.auth_token
+  #   $location.path( "/sign_in" );
+  #   return
 
   $http.get("./gists/#{$routeParams.id}.json").success((data) ->
     $scope.gist = data
+    console.log(data)
   )
 
   $scope.editGist= (id) ->

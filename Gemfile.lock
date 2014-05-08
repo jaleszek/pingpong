@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/tmm1/pygments.rb.git
+  revision: 1456fc3e7c592da02fb1301e52e92dd1a352cadb
+  specs:
+    pygments.rb (0.5.4)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -113,6 +121,7 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     polyglot (0.3.4)
+    posix-spawn (0.3.8)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -187,6 +196,7 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -202,6 +212,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-github
+  pygments.rb!
   quiet_assets
   rails (= 4.1.0)
   rspec-rails
