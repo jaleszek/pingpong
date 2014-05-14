@@ -38,6 +38,13 @@ gem 'quiet_assets'
 gem 'acts_as_votable', '~> 0.9.0'
 
 gem 'pygments.rb', github: 'tmm1/pygments.rb'
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'selenikit', git: "https://github.com/cloudspace/selenikit.git"
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

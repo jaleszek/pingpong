@@ -4,6 +4,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'shoulda-matchers'
+require 'capybara/rspec'
+require 'selenikit/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -41,4 +43,6 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include FactoryGirl::Syntax::Methods
+  Capybara.default_driver = :selenium
+  Selenikit::Rspec::Configure.set_driver
 end
