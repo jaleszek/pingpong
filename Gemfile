@@ -27,7 +27,10 @@ gem 'rspec-rails', group: :test
 gem 'shoulda-matchers', group: :test, require: false
 gem 'factory_girl_rails', group: :test
 gem 'haml-rails'
-gem 'debugger'
+
+group :development, :test do
+  gem 'debugger'
+end
 
 gem 'devise'
 gem 'inherited_resources'
