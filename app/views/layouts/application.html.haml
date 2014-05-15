@@ -1,0 +1,30 @@
+%html{ "ng-app" => "pingpong" }
+  %head
+    = stylesheet_link_tag    "application", media: "all"
+    = stylesheet_link_tag "pygments.css"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{ "data-toggle" => "collapse", "data-target" => ".nav-collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{ "href" => "#" }
+            Ping Pong App
+
+          .nav-collapse
+            %ul.nav
+              %li= link_to "link1", "#"
+              %li= link_to "link2", "#"
+
+    .container{ "ng-view" => true }
+      .row
+        .span9
+        .span3
+          About us
+          %p
+            Ping pong is cool stuff

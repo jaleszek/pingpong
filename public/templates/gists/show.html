@@ -1,26 +1,21 @@
-Gist:
+<a href='/#/gists'>back</a>
+
 <h1>{{gist.name}}</h1>
 
-<pre>
-  <div ng-bind-html="gist.formatted">
+<div class='row'>
+  <div class ="span8">
+    <div ng-bind-html="gist.formatted">
+    </div>
+    <a ng-click="deleteGist(gist.id)" class="btn btn-danger">Delete</a>
+    <a ng-click="editGist(gist.id)" class="btn btn-primary">Edit</a>
+    <a ng-click="createNewGist()" class="btn btn-primary">Create new gist</a>
+
+    <a ng-click="createChallenge(gist.id)" class="btn btn-warning">Post your response</a>
   </div>
-</pre>
-<a ng-click="deleteGist(gist.id)">Delete</a>
-<a ng-click="editGist(gist.id)">Edit</a>
-<a ng-click="createNewGist()">Create new gist</a>
-
-<a ng-click="createChallenge(gist.id)">Post your response</a>
-<a href='/#/gists'>index</a>
 
 
-
-Challenges:
-
-
-<ul ng-repeat = "challenge in gist.challenges">
-  <li>
-    {{challenge.name}}
-    <pre><div ng-bind-html="challenge.formatted"></div></pre>
-  </li>
-
-</ul>
+  <div class="span4">
+    <div ng-repeat = "challenge in gist.challenges">
+      <div ng-bind-html="challenge.formatted"></div>
+    </div>
+</div>

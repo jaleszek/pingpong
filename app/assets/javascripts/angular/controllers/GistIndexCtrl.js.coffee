@@ -54,7 +54,6 @@ app.controller('GistCreationCtrl', ['$scope', 'GistsFactory', '$location','$root
 ])
 
 app.controller('SignUpCtrl', ['$scope', '$location', '$http', '$rootScope', ($scope, $location, $http, $rootScope) ->
-  # redirect if already authenticated
   # if $rootScope.auth_token
   #   $location.path( "/gists" )
   #   return
@@ -74,7 +73,6 @@ app.controller('SignUpCtrl', ['$scope', '$location', '$http', '$rootScope', ($sc
 ])
 
 app.controller 'SignInCtrl', ['$scope', '$location', '$http', '$rootScope', ($scope, $location, $http, $rootScope) ->
-  # redirect if already authenticated
   # if $rootScope.auth_token
   #   $location.path( "/gists" )
   #   return

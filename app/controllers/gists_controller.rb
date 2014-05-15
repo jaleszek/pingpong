@@ -25,9 +25,7 @@ class GistsController < ApplicationController
   # POST /gists
   # POST /gists.json
   def create
-
-
-    @gist = Gist.create(owner_id: 1, type_id: 1, url: 'asd', name: Time.now.to_s)
+    @gist = Gist.create_with_defaults(user: current_user)
     @gist.update_content params
 
     if parent_gist_id = params[:parent_gist_id].present?

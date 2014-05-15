@@ -45,6 +45,14 @@ group :test do
   gem 'selenikit', git: "https://github.com/cloudspace/selenikit.git"
 end
 
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
+gem "haml-rails"
+
+group :production do
+  gem 'rails_12factor'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

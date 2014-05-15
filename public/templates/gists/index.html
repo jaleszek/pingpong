@@ -2,8 +2,18 @@
 <a href='/#'>index</a>
 <a href='/#/gists/new'>new gist</a>
 
-<ul ng-repeat='gist in gists'>
-	<li>
-		<a ng-click='viewGist(gist.id)'>{{gist.name}}</a>
-	</li>
-</ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Owner id</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody ng-repeat="gist in gists">
+    <td>{{gist.name}}</td>
+    <td>{{gist.owner_id}}</td>
+    <td><a ng-click='viewGist(gist.id)' class='btn btn-mini'>{{gist.name | characters:20}}</a></td>
+  </tbody>
+</table>

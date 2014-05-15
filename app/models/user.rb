@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   validate :uid_and_provider_presence
 
+  validates :email, uniqueness: true
+
   # add conditional validation to handle OAuth
   def uid_and_provider_presence
     # IMPLEMENTME

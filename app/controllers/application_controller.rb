@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_user
+    super# || User.first
+  end
+
   private
 
   def authenticate_by_token

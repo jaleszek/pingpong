@@ -1,6 +1,6 @@
 class Gist < ActiveRecord::Base
-	# validates :url, presence: true, uniqueness: true
-	# validates_format_of :url, with: /\Ahttps:\/\/gist.github.com\/\w+\/\d+\z/
+	validates :url, presence: true, uniqueness: true
+	validates_format_of :url, with: /\Ahttps:\/\/gist.github.com\/\w+\/\d+\z/
 	validates :type_id, presence: true
 	validates :owner_id, presence: true
 	validates :name, presence: true
@@ -62,5 +62,13 @@ class Gist < ActiveRecord::Base
 
 	def challenges
 		Gist.not_challengable.limit(3)
+	end
+
+	def self.create_with_defaults(args = {})
+		creation_args = (owner_id: args[:user].id, type_id: 1, url: 'asd', name: Time.now.to_s)
+
+		creation_args.merge args.slice(:type_id, :url, :name)
+
+		create creation_args
 	end
 end
