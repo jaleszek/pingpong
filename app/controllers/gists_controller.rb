@@ -28,11 +28,6 @@ class GistsController < ApplicationController
     @gist = Gist.create_with_defaults(user: current_user)
     @gist.update_content params
 
-    if parent_gist_id = params[:parent_gist_id].present?
-      parent = Gist.find parent_gist_id
-      parent.add_challenge(@gist)
-    end
-
     respond_to do |format|
       if @gist.save
         format.html { redirect_to @gist, notice: 'Gist was successfully created.' }

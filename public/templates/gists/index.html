@@ -6,14 +6,12 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Owner id</th>
-      <th>Actions</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody ng-repeat="gist in gists">
     <td>{{gist.name}}</td>
-    <td>{{gist.owner_id}}</td>
     <td><a ng-click='viewGist(gist.id)' class='btn btn-mini'>{{gist.name | characters:20}}</a></td>
   </tbody>
 </table>

@@ -16,6 +16,14 @@ services.factory('GistFactory', ['$resource', ($resource) ->
   ]
 )
 
+services.factory('ChallengeFactory', ['$resource', ($resource) ->
+  $resource('/challenges/:id.json', {id: '@id'},{
+    show: { method: 'GET' },
+    update: { method: 'PUT'},
+    delete: { method: 'DELETE'}
+    })
+])
+
 
 services.config ["$httpProvider", ($httpProvider) ->
   # provide CSRF token

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   resources :gists
+  resources :challenges
   resource :token_session, only: ["create"]
   get "/auth/:provider/callback" => "token_sessions#create"
   # The priority is based upon order of creation: first created -> highest priority.
